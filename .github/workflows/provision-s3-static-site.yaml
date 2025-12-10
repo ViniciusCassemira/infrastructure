@@ -20,6 +20,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1  # substitua pela região desejada
 
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v2
+
       - name: Extract Bucket Name from Issue
         run: |
           export BUCKET_NAME=$(echo "${{ github.event.issue.title }}")
